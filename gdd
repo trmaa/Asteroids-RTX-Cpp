@@ -1,0 +1,21 @@
+5000x5000 px ROUND MAP
+
+1 asteroid which keeps moving x 700 px
+
+1 player with acceleration
+
+1 3d matrix projected star x 500 px with different deapths
+
+---------------------------------------------
+
+render:
+	
+	paint all the asteroids at their possition subtractet by the players
+
+---------------------------------------------
+
+1. Window
+2. Hole player
+3. Stars and renderer
+4. Asteroids
+5. playability
