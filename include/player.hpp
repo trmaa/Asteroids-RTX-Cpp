@@ -19,7 +19,7 @@ private:
 	float _min_speed = 0.1f;
 	float _friction = 0.95f;
 	
-	std::string _file_path = "./sprites/player.png";
+	std::string _file_path;
 
 	struct Controller {
 		bool up, down, left, right, space;
@@ -44,12 +44,14 @@ private:
 	Controller _controller;
 
 private:
-	void _move(float& dt) {
+	void _move(float& dt, float width, float height) {
 		if (this->_controller.up) {
-			this->_velocity += this->_speed * glm::vec2(std::cos(this->_angle), std::sin(this->_angle)) * dt;
+			this->_velocity += this->_speed 
+				* glm::vec2(std::cos(this->_angle), std::sin(this->_angle)) * dt;
 		}
 		if (this->_controller.down) {
-			this->_velocity -= this->_speed * glm::vec2(std::cos(this->_angle), std::sin(this->_angle)) * dt;
+			this->_velocity -= this->_speed 
+				* glm::vec2(std::cos(this->_angle), std::sin(this->_angle)) * dt;
 		}
 
 		if (this->_controller.right) {
@@ -70,6 +72,19 @@ private:
 		}
 
 		this->_position += this->_velocity;
+
+		if (this->_position.x > width) {
+			this->_position.x = 0;
+		}
+		if (this->_position.x < 0) {
+			this->_position.x = width;
+		}
+		if (this->_position.y > height) {
+			this->_position.y = 0;
+		}
+		if (this->_position.y < 0) {
+			this->_position.y = height;
+		}
 	}
 
 public:
@@ -85,9 +100,9 @@ public:
 	~Player() = default;
 
 public:
-	void update(sf::Event& event, float& dt) {
+	void update(sf::Event& event, float& dt, float width, float height) {
 		this->_controller.update(event);
-		this->_move(dt);
+		this->_move(dt, width, height);
 	}
 };
 

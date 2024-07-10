@@ -3,6 +3,7 @@
     "arguments": [
       "/usr/bin/g++",
       "-c",
+      "-I./lib/",
       "-I./include/",
       "-o",
       "./bin/asteroids",
@@ -10,19 +11,6 @@
     ],
     "directory": "/home/pablo/Desktop/asteroids_cpp",
     "file": "/home/pablo/Desktop/asteroids_cpp/src/main.cpp",
-    "output": "/home/pablo/Desktop/asteroids_cpp/bin/asteroids"
-  },
-  {
-    "arguments": [
-      "/usr/bin/g++",
-      "-c",
-      "-I./include/",
-      "-o",
-      "./bin/asteroids",
-      "./src/window.cpp"
-    ],
-    "directory": "/home/pablo/Desktop/asteroids_cpp",
-    "file": "/home/pablo/Desktop/asteroids_cpp/src/window.cpp",
     "output": "/home/pablo/Desktop/asteroids_cpp/bin/asteroids"
   }
 ]

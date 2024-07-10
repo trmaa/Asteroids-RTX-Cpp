@@ -21,7 +21,7 @@ clean() {
 }
 
 build () {
-	g++ $SOURCE -o $OUTPUT -I$INCLUDE -L$LIBS $FLAGS
+	g++ $SOURCE -o $OUTPUT -I$LIBS -I$INCLUDE $FLAGS
 }
 
 run() {

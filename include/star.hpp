@@ -7,7 +7,7 @@
 
 class Star {
 private:
-	glm::vec3 _position = glm::vec3(1);
+	glm::vec3 _position;
 
 public:
 	const glm::vec3& position() const { return this->_position; }

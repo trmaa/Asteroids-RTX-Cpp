@@ -7,7 +7,7 @@
 
 void loop();
 
-Window window("Asteroids", 384, 216);
+Window window("Asteroids", 192*3, 108*3);
 
 sf::Event event;
 sf::Clock clck;
