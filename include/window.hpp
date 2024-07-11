@@ -38,7 +38,7 @@ private:
 				s = Star(x, y);
 			}
 
-			asteroid = std::vector<Asteroid>(1);
+			asteroid = std::vector<Asteroid>(5);
 			for (Asteroid& a : asteroid) {
 				a = Asteroid(x, y);
 			}
@@ -75,7 +75,7 @@ public:
 
 		for (Star& star : this->_scene.star) {
 			sf::RectangleShape shape;
-			shape.setSize(sf::Vector2f(1.f/star.position().z, 1.f/star.position().z));
+			shape.setSize(sf::Vector2f(2.f/star.position().z, 2.f/star.position().z));
 			shape.setRotation(45);
 
 			glm::vec3 pos = star.position();
@@ -91,7 +91,7 @@ public:
 		}
 
 		for (Asteroid& asteroid : this->_scene.asteroid) {
-			asteroid.update(dt, this->_scene.width, this->_scene.height);
+			asteroid.update(dt, this->_scene.width, this->_scene.height, this->_scene.asteroid);
 			sf::Texture texture;
 			if (texture.loadFromFile(asteroid.file_path())) {
 				sf::Sprite sprite(texture);
@@ -123,10 +123,10 @@ public:
         }
 		
 		sf::Text fps_text;
-		fps_text.setString(std::to_string(1/(dt-1)));
+		fps_text.setString("fps: "+std::to_string((int)(1/(dt-1))));
 		fps_text.setPosition(16, 16);
 		fps_text.setFont(this->_font);
-		fps_text.setCharacterSize(20);
+		fps_text.setCharacterSize(16);
 		this->draw(fps_text);
 		
 		this->display();
